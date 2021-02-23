@@ -21,15 +21,30 @@ app.listen(PORT, () => {
 });
 
 // Connection to MongoDB Atlas
-const MongoClient = require('mongodb').MongoClient;
 const DB_URI = process.env.DATABASE_URL;
-const client = new MongoClient(DB_URI, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
-client.connect((err) => {
-	if (err) throw err;
-	console.log('Database Connected');
-	// perform actions on the collection object
-	client.close();
-});
+mongoose.connect(
+	DB_URI,
+	{
+		useCreateIndex: true,
+		useFindAndModify: false,
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	},
+	(err) => {
+		if (err) throw err;
+		console.log('Connected to MongoDB Cluster');
+	}
+);
+
+// const MongoClient = require('mongodb').MongoClient;
+// const DB_URI = process.env.DATABASE_URL;
+// const client = new MongoClient(DB_URI, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+// });
+// client.connect((err) => {
+// 	if (err) throw err;
+// 	console.log('Database Connected');
+// //	perform actions on the collection object
+// 	client.close();
+// });
