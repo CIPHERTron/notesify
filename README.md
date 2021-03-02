@@ -1,5 +1,5 @@
 # notesify
-## A full stack note taking app
+## A full stack multi user note taking app
 
 ## **Client**
 - React
