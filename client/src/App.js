@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './index.css'
 
 import Login from './components/Login';
 import Notes from './components/Notes';
@@ -33,7 +34,7 @@ function App() {
 	return (
 		<div className='App'>
 			{isLogin ? (
-				<Notes />
+				<Notes setIsLogin={setIsLogin} />
 			) : (
 				<Login setIsLogin={setIsLogin} />
 			)}
