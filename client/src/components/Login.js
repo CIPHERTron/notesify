@@ -47,9 +47,15 @@ export default function Login({setIsLogin}) {
   }
  }
 
+	const [onLogin, setOnLogin] = useState(false);
+	const styles = {
+		visibility: onLogin ? "visible" : "hidden",
+		opacity: onLogin ? 1 : 0
+	}
+
 	return (
-		<section>
-			<div className='login'>
+		<section className="login-page">
+			<div className='login create-note'>
 				<h2>Login</h2>
 				<form onSubmit={loginSubmit}>
 					<input
@@ -85,7 +91,7 @@ export default function Login({setIsLogin}) {
 					<p>
 						Don't have an
 						account?
-						<span>
+						<span onClick={() => setOnLogin(true)}>
 							{' '}
 							Register
 						</span>
@@ -94,7 +100,7 @@ export default function Login({setIsLogin}) {
 				</form>
 			</div>
 
-			<div className='register'>
+			<div className='register create-note' style={styles}>
 				<h2>Register</h2>
 				<form onSubmit={registerSubmit}>
 					<input
@@ -137,12 +143,12 @@ export default function Login({setIsLogin}) {
 					/>
 
 					<button type='submit'>
-						Login
+						Sign Up
 					</button>
 					<p>
 						Already have an
 						account?
-						<span> Login</span>
+						<span onClick={() => setOnLogin(false)}> Login</span>
 					</p>
 					<h3>{err}</h3>
 				</form>
