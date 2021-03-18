@@ -47,7 +47,7 @@ export default function Home() {
 					<div className='text-wrapper'>
 						<p> {note.content} </p>
 					</div>
-					<p className='date'> {note.date}	</p>
+					<p className='date'> {format(note.date, 'en_US')}	</p>
 					<div className='card-footer'>
 						{note.name}
      <Link to={`edit/${note._id}`}>
